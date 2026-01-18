@@ -252,9 +252,10 @@ body {
 }
 
 .slide img {
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the box and maintains aspect ratio, may crop */
+  border-radius: 8px; /* optional: match slide corners */
 }
 
 /* ================= HOME CARDS ================= */
