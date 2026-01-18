@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Premium Mobile App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<style>
+:root {
+  --app-width: min(92vw, 390px);
+  --app-height: calc(var(--app-width) * 1.95);
+
+  --header-height: 60px;
+  --bottom-height: 72px;
+
+  --icon-size: 26px;
+  --text-sm: 12px;
+  --text-md: 16px;
+  --text-lg: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Splash Screen */
+.splash {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  animation: splashFade 2.5s ease forwards;
+}
+
+.splash h1 {
+  font-size: clamp(32px, 8vw, 40px);
+  animation: logoScale 2.5s ease forwards;
+}
+
+@keyframes splashFade {
+  0% {opacity:1;}
+  70% {opacity:1;}
+  100% {opacity:0; visibility:hidden;}
+}
+
+@keyframes logoScale {
+  0% {transform:scale(0.8);}
+  60% {transform:scale(1.1);}
+  100% {transform:scale(1);}
+}
+
+/* App Container */
+.mobile {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0;          /* 🔥 removes side curve */
+  box-shadow: none;          /* 🔥 removes side shadow */
+  background: #fff;
+  overflow: hidden;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+  
+  /* Initial Light Mode Colors */
+  background: #ffffff;
+  color: #000;
+}
+
+/* Dark Mode */
+.mobile.dark {
+  background: linear-gradient(180deg, #302e2e 0%, #211d1d 100%);
+  color: #fff;
+  
+ 
+}
+
+/* Header */
+.header {
+  height: var(--header-height);
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  background-color: #513f3f;
+  padding-top: env(safe-area-inset-top);
+}
+
+
+.bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+
+.dark .header {
+  border-color: #222;
+}
+
+.logo {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.header-icons span {
+  font-size: var(--icon-size);
+  margin-left: 14px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* Content */
+.content {
+  height: calc(100% - var(--header-height) - var(--bottom-height));
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.content h3 {
+  font-size: var(--text-lg);
+}
+
+.content p {
+  font-size: var(--text-md);
+  opacity: 0.8;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  height: var(--bottom-height);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #ddd;
+}
+
+.dark .bottom-nav {
+  border-color: #222;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--text-sm);
+  color: #666;
+  cursor: pointer;
+}
+
+.dark .nav-item {
+  color: #aaa;
+}
+
+.nav-item span.material-icons-outlined {
+  font-size: var(--icon-size);
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: #000;
+}
+
+.dark .nav-item.active {
+  color: #fff;
+}
+
+/* Small devices fine-tuning */
+@media (max-width: 360px) {
+  :root {
+    --header-height: 56px;
+    --bottom-height: 68px;
+    --icon-size: 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Splash -->
+<div class="splash">
+  <h1>HF</h1>
+</div>
+
+<!-- App -->
+<div class="mobile" id="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">HF</div>
+    <div class="header-icons">
+      <span class="material-icons-outlined">language</span>
+      <span class="material-icons-outlined" onclick="toggleDark()">dark_mode</span>
+      <span class="material-icons-outlined">notifications</span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content" id="content">
+    <h3>Home</h3>
+    <p>Responsive premium mobile UI with perfect sizing.</p>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="changeTab('Home', this)">
+      <span class="material-icons-outlined">home</span>
+      Home
+    </div>
+    <div class="nav-item" onclick="changeTab('Services', this)">
+      <span class="material-icons-outlined">build</span>
+      Services
+    </div>
+    <div class="nav-item" onclick="changeTab('Settings', this)">
+      <span class="material-icons-outlined">settings</span>
+      Settings
+    </div>
+  </div>
+
+</div>
+
+<script>
+function changeTab(name, el) {
+  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('content').innerHTML =
+    `<h3>${name}</h3><p>${name} page content.</p>`;
+}
+
+function toggleDark() {
+  document.getElementById('app').classList.toggle('dark');
+}
+</script>
+
+</body>
+</html>
