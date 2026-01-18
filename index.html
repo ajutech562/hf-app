@@ -1,254 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Responsive Premium Mobile App</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>HF - Premium Digital Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="HF provides premium web development, mobile apps, CCTV systems, digital marketing, and design services" />
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-<style>
-:root {
-  --app-width: min(92vw, 390px);
-  --app-height: calc(var(--app-width) * 1.95);
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  --header-height: 60px;
-  --bottom-height: 72px;
-
-  --icon-size: 26px;
-  --text-sm: 12px;
-  --text-md: 16px;
-  --text-lg: 20px;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-body {
-  background: #e0e0e0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
-/* Splash Screen */
-.splash {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  border-radius: 0;
-  background: #111;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  animation: splashFade 2.5s ease forwards;
-}
-
-.splash h1 {
-  font-size: clamp(32px, 8vw, 40px);
-  animation: logoScale 2.5s ease forwards;
-}
-
-@keyframes splashFade {
-  0% {opacity:1;}
-  70% {opacity:1;}
-  100% {opacity:0; visibility:hidden;}
-}
-
-@keyframes logoScale {
-  0% {transform:scale(0.8);}
-  60% {transform:scale(1.1);}
-  100% {transform:scale(1);}
-}
-
-/* App Container */
-.mobile {
-  width: 100vw;
-  height: 100vh;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 0;          /* 🔥 removes side curve */
-  box-shadow: none;          /* 🔥 removes side shadow */
-  background: #fff;
-  overflow: hidden;
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-  
-  /* Initial Light Mode Colors */
-  background: #ffffff;
-  color: #000;
-}
-
-/* Dark Mode */
-.mobile.dark {
-  background: linear-gradient(180deg, #302e2e 0%, #211d1d 100%);
-  color: #fff;
-  
- 
-}
-
-/* Header */
-.header {
-  height: var(--header-height);
-  padding: 0 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  background-color: #513f3f;
-  padding-top: env(safe-area-inset-top);
-}
-
-
-.bottom-nav {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-
-.dark .header {
-  border-color: #222;
-}
-
-.logo {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.header-icons span {
-  font-size: var(--icon-size);
-  margin-left: 14px;
-  cursor: pointer;
-  color: #ffffff;
-}
-
-/* Content */
-.content {
-  height: calc(100% - var(--header-height) - var(--bottom-height));
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.content h3 {
-  font-size: var(--text-lg);
-}
-
-.content p {
-  font-size: var(--text-md);
-  opacity: 0.8;
-}
-
-/* Bottom Navigation */
-.bottom-nav {
-  height: var(--bottom-height);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid #ddd;
-}
-
-.dark .bottom-nav {
-  border-color: #222;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: var(--text-sm);
-  color: #666;
-  cursor: pointer;
-}
-
-.dark .nav-item {
-  color: #aaa;
-}
-
-.nav-item span.material-icons-outlined {
-  font-size: var(--icon-size);
-  margin-bottom: 4px;
-}
-
-.nav-item.active {
-  color: #000;
-}
-
-.dark .nav-item.active {
-  color: #fff;
-}
-
-/* Small devices fine-tuning */
-@media (max-width: 360px) {
-  :root {
-    --header-height: 56px;
-    --bottom-height: 68px;
-    --icon-size: 24px;
-  }
-}
-</style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Splash -->
-<div class="splash">
-  <h1>HF</h1>
-</div>
-
-<!-- App -->
-<div class="mobile" id="app">
-
-  <!-- Header -->
-  <div class="header">
-    <div class="logo">HF</div>
-    <div class="header-icons">
-      <span class="material-icons-outlined">language</span>
-      <span class="material-icons-outlined" onclick="toggleDark()">dark_mode</span>
-      <span class="material-icons-outlined">notifications</span>
-    </div>
+  <!-- Splash -->
+  <div class="splash">
+    <h1>HF</h1>
+    <p class="splash-tagline">Digital Solutions</p>
   </div>
 
-  <!-- Content -->
-  <div class="content" id="content">
-    <h3>Home</h3>
-    <p>Responsive premium mobile UI with perfect sizing.</p>
+  <!-- App -->
+  <div class="mobile" id="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">HF</div>
+      <div class="header-icons">
+        <span class="material-icons-outlined" onclick="showNotifications()">notifications</span>
+        <span class="material-icons-outlined" onclick="toggleDark()">dark_mode</span>
+      </div>
+    </header>
+
+    <!-- Pages -->
+    <main class="pages">
+
+      <!-- HOME -->
+      <section class="page active" id="home">
+        <div class="welcome-banner">
+          <h2>Welcome to HF</h2>
+          <p>Your trusted partner for digital transformation</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">300+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">220+</div>
+            <div class="stat-label">Clients</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years</div>
+          </div>
+        </div>
+
+        <!-- Slider -->
+        <h3 class="section-title">Our Expertise</h3>
+        <div class="slider-wrapper">
+          <div class="slider-track">
+            <div class="slide"><img src="digital.png" alt="Digital Marketing"></div>
+            <div class="slide"><img src="cctv.png" alt="CCTV Systems"></div>
+            <div class="slide"><img src="interior.png" alt="Interior Design"></div>
+            <div class="slide"><img src="web.png" alt="Web Development"></div>
+            <!-- duplicate for seamless loop -->
+            <div class="slide"><img src="digital.png" alt="Digital Marketing"></div>
+            <div class="slide"><img src="cctv.png" alt="CCTV Systems"></div>
+            <div class="slide"><img src="interior.png" alt="Interior Design"></div>
+            <div class="slide"><img src="web.png" alt="Web Development"></div>
+          </div>
+        </div>
+
+        <!-- Quick Services -->
+        <h3 class="section-title">Quick Access</h3>
+        <div class="card-grid">
+          <div class="card" onclick="switchPage('services', document.querySelectorAll('.nav-item')[1])">
+            <span class="material-icons-outlined card-icon">web</span>
+            <span>Web Dev</span>
+          </div>
+          <div class="card" onclick="switchPage('services', document.querySelectorAll('.nav-item')[1])">
+            <span class="material-icons-outlined card-icon">phone_android</span>
+            <span>Mobile App</span>
+          </div>
+          <div class="card" onclick="switchPage('services', document.querySelectorAll('.nav-item')[1])">
+            <span class="material-icons-outlined card-icon">videocam</span>
+            <span>CCTV</span>
+          </div>
+          <div class="card" onclick="switchPage('services', document.querySelectorAll('.nav-item')[1])">
+            <span class="material-icons-outlined card-icon">palette</span>
+            <span>Design</span>
+          </div>
+          <div class="card" onclick="switchPage('services', document.querySelectorAll('.nav-item')[1])">
+            <span class="material-icons-outlined card-icon">campaign</span>
+            <span>Marketing</span>
+          </div>
+          <div class="card" onclick="switchPage('contact', document.querySelectorAll('.nav-item')[3])">
+            <span class="material-icons-outlined card-icon">support_agent</span>
+            <span>Support</span>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <h3 class="section-title">What Clients Say</h3>
+        <div class="testimonial-slider">
+          <div class="testimonial">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"HF transformed our online presence with a stunning website. Highly professional!"</p>
+            <div class="testimonial-author">- Vineeth srinivasan, CEO</div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"The mobile app they built exceeded our expectations. Great team to work with."</p>
+            <div class="testimonial-author">- nivin pauly, Founder</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="page" id="services">
+        <h2>Our Services</h2>
+        <p class="page-subtitle">Comprehensive digital solutions tailored to your needs</p>
+
+        <div class="services-list">
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">web</span>
+              <div class="service-text">
+                <h4>Web Development</h4>
+                <p>Modern responsive websites & web apps</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>Custom website design & development</li>
+                <li>E-commerce platforms</li>
+                <li>Content Management Systems (CMS)</li>
+                <li>Progressive Web Apps (PWA)</li>
+                <li>SEO optimization</li>
+                <li>Website maintenance & support</li>
+              </ul>
+              <div class="service-price">Starting from $999</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">phone_android</span>
+              <div class="service-text">
+                <h4>Mobile App Development</h4>
+                <p>Native & cross-platform solutions</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>iOS & Android native apps</li>
+                <li>React Native & Flutter apps</li>
+                <li>UI/UX design</li>
+                <li>App Store deployment</li>
+                <li>Push notifications integration</li>
+                <li>Backend API development</li>
+              </ul>
+              <div class="service-price">Starting from $2,499</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">videocam</span>
+              <div class="service-text">
+                <h4>CCTV & Security Systems</h4>
+                <p>Smart surveillance solutions</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>HD & 4K camera installation</li>
+                <li>Remote monitoring systems</li>
+                <li>Motion detection & alerts</li>
+                <li>Cloud storage integration</li>
+                <li>Night vision cameras</li>
+                <li>24/7 technical support</li>
+              </ul>
+              <div class="service-price">Starting from $799</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">palette</span>
+              <div class="service-text">
+                <h4>Graphic Design</h4>
+                <p>Creative visual solutions</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>Logo & brand identity design</li>
+                <li>Marketing materials</li>
+                <li>Social media graphics</li>
+                <li>UI/UX design</li>
+                <li>Print design</li>
+                <li>Packaging design</li>
+              </ul>
+              <div class="service-price">Starting from $299</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">campaign</span>
+              <div class="service-text">
+                <h4>Digital Marketing</h4>
+                <p>Grow your online presence</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>Social media management</li>
+                <li>Google Ads & PPC campaigns</li>
+                <li>SEO & content marketing</li>
+                <li>Email marketing</li>
+                <li>Analytics & reporting</li>
+                <li>Influencer partnerships</li>
+              </ul>
+              <div class="service-price">Starting from $599/month</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">cloud</span>
+              <div class="service-text">
+                <h4>Cloud Solutions</h4>
+                <p>Scalable infrastructure</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>Cloud migration services</li>
+                <li>AWS, Azure, Google Cloud</li>
+                <li>Database management</li>
+                <li>Backup & disaster recovery</li>
+                <li>DevOps & CI/CD</li>
+                <li>Security & compliance</li>
+              </ul>
+              <div class="service-price">Custom pricing</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">architecture</span>
+              <div class="service-text">
+                <h4>Interior Design Tech</h4>
+                <p>Smart home integration</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>3D visualization & rendering</li>
+                <li>Smart lighting systems</li>
+                <li>Home automation</li>
+                <li>Virtual reality walkthroughs</li>
+                <li>IoT device integration</li>
+                <li>Energy management systems</li>
+              </ul>
+              <div class="service-price">Starting from $1,299</div>
+            </div>
+          </div>
+
+          <div class="service-card" onclick="toggleServiceDetails(this)">
+            <div class="service-header">
+              <span class="material-icons-outlined">support_agent</span>
+              <div class="service-text">
+                <h4>IT Support & Consulting</h4>
+                <p>Expert technical assistance</p>
+              </div>
+              <span class="material-icons-outlined expand-icon">expand_more</span>
+            </div>
+            <div class="service-details">
+              <ul>
+                <li>24/7 helpdesk support</li>
+                <li>Network setup & maintenance</li>
+                <li>Cybersecurity consulting</li>
+                <li>Software troubleshooting</li>
+                <li>System upgrades</li>
+                <li>Training & documentation</li>
+              </ul>
+              <div class="service-price">Starting from $99/month</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="page" id="portfolio">
+        <h2>Our Portfolio</h2>
+        <p class="page-subtitle">Showcasing our best work</p>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" onclick="filterPortfolio('all')">All</button>
+          <button class="filter-btn" onclick="filterPortfolio('web')">Web</button>
+          <button class="filter-btn" onclick="filterPortfolio('mobile')">Mobile</button>
+          <button class="filter-btn" onclick="filterPortfolio('design')">Design</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="web">
+            <div class="portfolio-image">
+              <img src="web.png" alt="E-commerce Platform">
+            </div>
+            <div class="portfolio-info">
+              <h4>E-commerce Platform</h4>
+              <p>Full-stack online store with payment integration</p>
+              <div class="portfolio-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Stripe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="mobile">
+            <div class="portfolio-image">
+              <img src="digital.png" alt="Fitness Tracking App">
+            </div>
+            <div class="portfolio-info">
+              <h4>Fitness Tracking App</h4>
+              <p>iOS & Android app with real-time analytics</p>
+              <div class="portfolio-tags">
+                <span class="tag">React Native</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="web">
+            <div class="portfolio-image">
+              <img src="interior.png" alt="Real Estate Portal">
+            </div>
+            <div class="portfolio-info">
+              <h4>Real Estate Portal</h4>
+              <p>Property listing platform with virtual tours</p>
+              <div class="portfolio-tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">3D</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="design">
+            <div class="portfolio-image">
+              <img src="cctv.png" alt="Security Brand">
+            </div>
+            <div class="portfolio-info">
+              <h4>Security Brand Identity</h4>
+              <p>Complete branding for security company</p>
+              <div class="portfolio-tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Logo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="page" id="about">
+        <h2>About HF</h2>
+        <p class="page-subtitle">Your trusted digital partner since 2009</p>
+
+        <div class="about-content">
+          <div class="about-section">
+            <h3>Our Story</h3>
+            <p>Founded in 2009, HF has grown from a small web development studio to a full-service digital agency. We've
+              helped over 250 businesses transform their digital presence and achieve their goals.</p>
+          </div>
+
+          <div class="about-section">
+            <h3>Our Mission</h3>
+            <p>To empower businesses with cutting-edge technology solutions that drive growth, enhance efficiency, and
+              create exceptional user experiences.</p>
+          </div>
+
+          <div class="about-section">
+            <h3>Why Choose Us?</h3>
+            <div class="features-list">
+              <div class="feature-item">
+                <span class="material-icons-outlined">verified</span>
+                <div>
+                  <h4>Proven Expertise</h4>
+                  <p>15+ years of industry experience</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-icons-outlined">speed</span>
+                <div>
+                  <h4>Fast Delivery</h4>
+                  <p>On-time project completion</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-icons-outlined">support</span>
+                <div>
+                  <h4>24/7 Support</h4>
+                  <p>Always here when you need us</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-icons-outlined">price_check</span>
+                <div>
+                  <h4>Competitive Pricing</h4>
+                  <p>Quality services at fair prices</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h3>Our Team</h3>
+            <p>We're a diverse team of 50+ designers, developers, marketers, and consultants passionate about creating
+              exceptional digital experiences.</p>
+            <div class="team-stats">
+              <div class="team-stat">
+                <div class="team-stat-number">25</div>
+                <div class="team-stat-label">Developers</div>
+              </div>
+              <div class="team-stat">
+                <div class="team-stat-number">15</div>
+                <div class="team-stat-label">Designers</div>
+              </div>
+              <div class="team-stat">
+                <div class="team-stat-number">10</div>
+                <div class="team-stat-label">Marketers</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h3>Certifications & Partners</h3>
+            <div class="certifications">
+              <div class="cert-badge">Google Partner</div>
+              <div class="cert-badge">AWS Certified</div>
+              <div class="cert-badge">Microsoft Partner</div>
+              <div class="cert-badge">ISO 9001</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="page" id="contact">
+        <h2>Contact Us</h2>
+        <p class="page-subtitle">Let's discuss your project</p>
+
+        <div class="contact-methods">
+          <div class="contact-method">
+            <span class="material-icons-outlined">phone</span>
+            <div>
+              <h4>Phone</h4>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <span class="material-icons-outlined">email</span>
+            <div>
+              <h4>Email</h4>
+              <p>info@hf-digital.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <span class="material-icons-outlined">location_on</span>
+            <div>
+              <h4>Address</h4>
+              <p>123 Tech Street, Digital City</p>
+            </div>
+          </div>
+        </div>
+
+        
+         
+ 
+
+      
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="settings">
+        <h2>Settings</h2>
+        <p class="page-subtitle">Customize your experience</p>
+
+        <div class="settings-section">
+          <h3>Appearance</h3>
+          <div class="settings-list">
+            <div class="setting-item" onclick="toggleDark()">
+              <div class="setting-left">
+                <span class="material-icons-outlined">dark_mode</span>
+                Dark Mode
+              </div>
+              <div class="toggle-switch" id="darkModeToggle">
+                <div class="toggle-slider"></div>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-left">
+                <span class="material-icons-outlined">text_fields</span>
+                Font Size
+              </div>
+              <select class="setting-select" onchange="changeFontSize(this.value)">
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Notifications</h3>
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-left">
+                <span class="material-icons-outlined">notifications</span>
+                Push Notifications
+              </div>
+              <div class="toggle-switch active">
+                <div class="toggle-slider"></div>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-left">
+                <span class="material-icons-outlined">email</span>
+                Email Updates
+              </div>
+              <div class="toggle-switch active">
+                <div class="toggle-slider"></div>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-left">
+                <span class="material-icons-outlined">campaign</span>
+                Promotional Offers
+              </div>
+              <div class="toggle-switch">
+                <div class="toggle-slider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Language & Region</h3>
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-left">
+                <span class="material-icons-outlined">language</span>
+                Language
+              </div>
+              <select class="setting-select">
+                <option value="en" selected>English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="zh">中文</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-left">
+                <span class="material-icons-outlined">public</span>
+                Region
+              </div>
+              <select class="setting-select">
+                <option value="us" selected>United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="au">Australia</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Account</h3>
+          <div class="settings-list">
+            <div class="setting-item clickable">
+              <div class="setting-left">
+                <span class="material-icons-outlined">person</span>
+                Edit Profile
+              </div>
+              <span class="material-icons-outlined">chevron_right</span>
+            </div>
+
+            <div class="setting-item clickable">
+              <div class="setting-left">
+                <span class="material-icons-outlined">lock</span>
+                Privacy & Security
+              </div>
+              <span class="material-icons-outlined">chevron_right</span>
+            </div>
+
+            <div class="setting-item clickable">
+              <div class="setting-left">
+                <span class="material-icons-outlined">payment</span>
+                Payment Methods
+              </div>
+              <span class="material-icons-outlined">chevron_right</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Support</h3>
+          <div class="settings-list">
+            <div class="setting-item clickable">
+              <div class="setting-left">
+                <span class="material-icons-outlined">help</span>
+                Help Center
+              </div>
+              <span class="material-icons-outlined">chevron_right</span>
+            </div>
+
+            <div class="setting-item clickable">
+              <div class="setting-left">
+                <span class="material-icons-outlined">feedback</span>
+                Send Feedback
+              </div>
+              <span class="material-icons-outlined">chevron_right</span>
+            </div>
+
+            <div class="setting-item clickable">
+              <div class="setting-left">
+                <span class="material-icons-outlined">info</span>
+                About App
+              </div>
+              <span class="material-icons-outlined">chevron_right</span>
+            </div>
+          </div>
+        </div>
+
+     
+
+        <div class="app-version">Version 2.1.0</div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item active" onclick="switchPage('home', this)">
+        <span class="material-icons-outlined">home</span>
+        Home
+      </div>
+
+      <div class="nav-item" onclick="switchPage('services', this)">
+        <span class="material-icons-outlined">build</span>
+        Services
+      </div>
+
+      <div class="nav-item" onclick="switchPage('portfolio', this)">
+        <span class="material-icons-outlined">work</span>
+        Portfolio
+      </div>
+
+      <div class="nav-item" onclick="switchPage('contact', this)">
+        <span class="material-icons-outlined">contact_mail</span>
+        Contact
+      </div>
+
+      <div class="nav-item" onclick="switchPage('settings', this)">
+        <span class="material-icons-outlined">settings</span>
+        Settings
+      </div>
+    </div>
+
   </div>
 
-  <!-- Bottom Nav -->
-  <div class="bottom-nav">
-    <div class="nav-item active" onclick="changeTab('Home', this)">
-      <span class="material-icons-outlined">home</span>
-      Home
-    </div>
-    <div class="nav-item" onclick="changeTab('Services', this)">
-      <span class="material-icons-outlined">build</span>
-      Services
-    </div>
-    <div class="nav-item" onclick="changeTab('Settings', this)">
-      <span class="material-icons-outlined">settings</span>
-      Settings
-    </div>
-  </div>
-
-</div>
-
-<script>
-function changeTab(name, el) {
-  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('content').innerHTML =
-    `<h3>${name}</h3><p>${name} page content.</p>`;
-}
-
-function toggleDark() {
-  document.getElementById('app').classList.toggle('dark');
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>
