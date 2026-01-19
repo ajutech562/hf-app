@@ -546,114 +546,7 @@ body {
   background: #667eea;
 }
 
-/* ================= ABOUT ================= */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
 
-.about-section h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 12px 0;
-  color: var(--text);
-}
-
-.about-section p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text);
-  margin: 0;
-}
-
-.features-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.feature-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: var(--card-bg);
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-}
-
-.feature-item span {
-  font-size: 32px;
-  color: var(--primary);
-}
-
-.mobile.dark .feature-item span {
-  color: #667eea;
-}
-
-.feature-item h4 {
-  margin: 0 0 4px 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.feature-item p {
-  margin: 0;
-  font-size: 13px;
-  color: var(--text-secondary);
-}
-
-.team-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.team-stat {
-  background: var(--card-bg);
-  padding: 16px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-.team-stat-number {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 4px;
-}
-
-.mobile.dark .team-stat-number {
-  color: #667eea;
-}
-
-.team-stat-label {
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.certifications {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.cert-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: var(--shadow);
-}
 
 /* ================= CONTACT ================= */
 .contact-methods {
@@ -979,3 +872,4 @@ body {
     font-size: 20px;
   }
 }
+
